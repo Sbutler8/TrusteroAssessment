@@ -7,10 +7,10 @@
 <br />
 <p align="center">
   <a href="https://analog-to-digital-dash.herokuapp.com/">
-    <img src="https://raw.githubusercontent.com/Sbutler8/converted-analog-to-digital-dash/db/final_fav.jpg.png"  alt="Logo" width="auto" height="120">
+    <img src="https://raw.githubusercontent.com/Sbutler8/TrusteroAssessment/db/final_fav.jpg.png"  alt="Logo" width="auto" height="120">
   </a>
   
-<h1 align="center"> Converted Analog To Digital Dash </h1>
+<h1 align="center"> Trustero Assessment </h1>
 
 This application is for users who love the latest and greatest trends in today's automotive industry. I have had a dream of converting my old 1988 Mazda's analog dashboard into a digital touch screen. This app is meant to mimic the conversion of an older cars analog dashboard to that of a newer digital dashboard. In order to do so realistically one would connect a raspberryPi and Arduino to the On Board Diagnostics (OBD) Port in their car via serial cable. Nearly every car made after 1996 has an OBD2 port which can send parameter IDs, making it possible to extract human-readable data from your car such as speed, RPM, throttle position, and much more.
 
@@ -48,10 +48,10 @@ Ideally, this custom app will be robust enough to take in any cars serial data a
 
 ### Installation
 
-1. Clone the repo `git clone https://github.com/Sbutler8/converted-analog-to-digital-dash.git`
+1. Clone the repo `git clone https://github.com/Sbutler8/TrusteroAssessment.git`
 2. Create root .env file based on example .env-example file `touch .env`
 3. Create frontend .env file based on example .env-frontend-example `cd react-app/ && touch .env`
-4. Install backend dependencies `cd converted-analog-to-digital-dash/react-app/ && pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
+4. Install backend dependencies `cd TrusteroAssessment/react-app/ && pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
 5. Install frontend dependencies `cd ../react-app && npm install`
 6. Start virtual environment in frontend `cd .. && pipenv shell`
 7. Apply the migration to the database `flask db upgrade`
@@ -79,13 +79,13 @@ Ideally, this custom app will be robust enough to take in any cars serial data a
 #### 10. Ability to see full stack web application features in full with or without the Arduino hardware using easy toggle switch.
 ![Alt text](https://github.com/Sbutler8/converted-analog-to-digital-dash/blob/main/react-app/public/solo_project_2_screen_recording.gif)
 
-[contributors-shield]: https://img.shields.io/github/contributors/Sbutler8/converted-analog-to-digital-dash.svg?style=for-the-badge
-[contributors-url]: https://github.com/Sbutler8/converted-analog-to-digital-dash/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Sbutler8/converted-analog-to-digital-dash.svg?style=for-the-badge
-[forks-url]: https://github.com/Sbutler8/converted-analog-to-digital-dash/network/members
-[stars-shield]: https://img.shields.io/github/stars/Sbutler8/converted-analog-to-digital-dash.svg?style=for-the-badge
-[stars-url]: https://github.com/Sbutler8/converted-analog-to-digital-dash/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Sbutler8/converted-analog-to-digital-dash.svg?style=for-the-badge
-[issues-url]: https://github.com/Sbutler8/converted-analog-to-digital-dash/issues
+[contributors-shield]: https://img.shields.io/github/contributors/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
+[contributors-url]: https://github.com/Sbutler8/TrusteroAssessment/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
+[forks-url]: https://github.com/Sbutler8/TrusteroAssessment/network/members
+[stars-shield]: https://img.shields.io/github/stars/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
+[stars-url]: https://github.com/Sbutler8/TrusteroAssessment/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
+[issues-url]: https://github.com/Sbutler8/TrusteroAssessment/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/samantha-butler-410675178/
