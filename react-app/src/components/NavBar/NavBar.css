@@ -84,33 +84,12 @@ a {
    inset -20px 0 300px #0ff,
    0 0 50px #fff,
    -10px 0 80px rgb(12, 12, 12),
-   10px 0 80px rgb(191, 6, 247);
+   10px 0 80px rgb(64, 15, 241);
 }
 
 .menu-item:nth-child(3) {
    transition-duration: 180ms;
 }
-
-.menu-item:nth-child(4) {
-   transition-duration: 180ms;
-}
-
-.menu-item:nth-child(5) {
-   transition-duration: 180ms;
-}
-
-.menu-item:nth-child(6) {
-   transition-duration: 180ms;
-}
-
-.menu-item:nth-child(7) {
-   transition-duration: 180ms;
-}
-
-.menu-item:nth-child(8) {
-   transition-duration: 180ms;
-}
-
 
 .menu-open-button {
    z-index: 2;
@@ -140,31 +119,6 @@ a {
    transform: translate3d(24.9466px, -44.47586px, 0);
 }
 
-.menu-open:checked ~ .menu-item:nth-child(4) {
-   transition-duration: 280ms;
-   transform: translate3d(60.9466px, 6.52414px, 0);
-}
-
-.menu-open:checked ~ .menu-item:nth-child(5) {
-   transition-duration: 380ms;
-   transform: translate3d(31.9466px, 56.47586px, 0);
-}
-
-.menu-open:checked ~ .menu-item:nth-child(6) {
-   transition-duration: 480ms;
-   transform: translate3d(-24.91639px, 55.99997px, 0);
-}
-
-.menu-open:checked ~ .menu-item:nth-child(7) {
-   transition-duration: 580ms;
-   transform: translate3d(-62.86291px, 6.62064px, 0);
-}
-
-.menu-open:checked ~ .menu-item:nth-child(8) {
-   transition-duration: 680ms;
-   transform: translate3d(-32.03006px, -45.33095px, 0);
-}
-
 .blue {
    background-color: #bbdb47;
    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
@@ -176,63 +130,13 @@ a {
    text-shadow: none;
 }
 
-.green {
-   background-color: #53cfbf;
-   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
-   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
-}
-
-
-.red {
-   background-color: #4fdd67;
-   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
-   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
-}
-
 .menu-item:hover {
    color: #f5f1f2;
    text-shadow: none;
 }
 
-.purple {
-   background-color: #bd69f5;
-   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
-   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
-}
-
-
-.orange {
-   background-color: #fca83a;
-   box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
-   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
-}
-
-
 .lightblue {
    background-color: #62C2E4;
    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
-}
-
-.credit {
-   margin: 24px 20px 120px 0;
-   text-align: right;
-   color: #EEEEEE;
-}
-
-.credit a {
-   padding: 8px 0;
-   color: #C49CDE;
-   text-decoration: none;
-   transition: all 0.3s ease 0s;
-}
-
-.credit a:hover {
-   text-decoration: underline;
-}
-
-
-#gps-modal {
-   position: absolute;
-   z-index: 15;
 }
