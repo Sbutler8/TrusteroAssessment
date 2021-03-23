@@ -11,7 +11,7 @@ def comments():
     comments = Comment.query.all()
     return {"comments": [comment.to_dict() for comments in comments]}
 
-@comment_routes.route('/create', methods: ['POST'])
+@comment_routes.route('/create', methods=['POST'])
 def add_comment():
     """
     Adds list created from user to db
@@ -31,7 +31,7 @@ def add_comment():
 
     return car.to_dict()
 
-@comment_routes.route('/delete/<:id>', methods: ['DELETE'])
+@comment_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete(id):
     comments = Comment.query.byPK(id)
     return {"comments": [comment.to_dict() for comment in comments]}

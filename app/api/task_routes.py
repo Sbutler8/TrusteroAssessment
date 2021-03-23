@@ -11,7 +11,7 @@ def tasks():
     tasks = Task.query.all()
     return {"tasks": [task.to_dict() for task in tasks]}
 
-@task_routes.route('/create', methods: ['POST'])
+@task_routes.route('/create', methods=['POST'])
 def add_comment():
     """
     Adds task created from user to db
@@ -55,7 +55,7 @@ def edit_task(id):
             return {'errors': ['An error occurred while retrieving the data']}, 500
 
 
-@task_routes.route('/delete/<:id>', methods: ['DELETE'])
+@task_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete(id):
     task = Task.query.byPK(id)
     return {"tasks": [task.to_dict() for task in tasks]}
