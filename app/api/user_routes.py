@@ -4,9 +4,7 @@ from app.models import User, db
 from app.helpers import *
 from werkzeug.utils import secure_filename
 
-
 user_routes = Blueprint('users', __name__)
-
 
 @user_routes.route('/')
 def users():
