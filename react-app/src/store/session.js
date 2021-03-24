@@ -27,7 +27,6 @@ const setProfilePic = (file) => ({
   payload: file
 });
 
-
 export const login = (user) => async (dispatch) => {
     const { email, password } = user;
     const response = await fetch('/api/auth/login', {

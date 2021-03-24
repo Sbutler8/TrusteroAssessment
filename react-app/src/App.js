@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import NavBar from './components/NavBar'
 import * as sessionActions from './store/session'
 import Home from "./components/Home";
 import SplashPage from "./components/SplashPage";
@@ -24,13 +23,12 @@ function App() {
 
   return (
     <BrowserRouter>
-        {/* <NavBar /> */}
         <Switch>
             <Route path="/" exact={true}>
                 <SplashPage  />
             </Route>
-            <ProtectedRoute path="/" exact={true} >
-                <h1>My Home Page</h1>
+            <ProtectedRoute path="/home" exact={true} >
+                <Home />
             </ProtectedRoute>
         </Switch>
       </BrowserRouter>
