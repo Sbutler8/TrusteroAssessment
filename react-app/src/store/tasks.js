@@ -38,7 +38,6 @@ export const editTaskStatus = (formObj ) => async (dispatch) => {
 const initialState = {};
 
 const taskReducer = (state = initialState, action) => {
-  let newState;
   switch (action.type) {
     case GET_TASKS:
       return { ...state, tasks: action.payload }

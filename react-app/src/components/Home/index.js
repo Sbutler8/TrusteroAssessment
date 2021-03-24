@@ -1,18 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {getAllLists} from '../../store/lists';
+import { getAllLists } from '../../store/lists';
+import { getAllTasks } from '../../store/tasks';
 import NavBar from '../NavBar/index';
 import './Home.css'
 
 const Home = () => {
     const dispatch = useDispatch();
+
+    const [listId, setListId] = useState(null);
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
-        dispatch(getAllLists(user.id))
-    })
+        dispatch(getAllLists(user.id));
+    }, [dispatch, user.id])
 
     const lists =useSelector(state => state.lists.lists)
+    const tasks =useSelector(state => state.tasks.tasks)
+
+    // useEffect(() => {
+    //     dispatch(getAllTasks(listId));
+    // }, [dispatch, listId])
 
     return (
         <>
@@ -22,10 +30,17 @@ const Home = () => {
             </div>
             {lists &&
             lists.map(list => {
+                // setListId(list.id)
                 return (
                     <>
-                    <div>{list.title}</div>
-                </>
+                        <div key={list.id} onChange={() => dispatch(getAllTasks(list.id))}>{list.title}</div>
+                        {tasks &&
+                        tasks.map(task => {
+                            return (
+                                <div>{task.description}</div>
+                            )
+                        })}
+                    </>
                 )
             })}
             <NavBar className="navBar"/>
