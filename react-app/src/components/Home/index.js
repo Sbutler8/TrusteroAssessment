@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllLists } from '../../store/lists';
-import { getAllTasks } from '../../store/tasks';
 import NavBar from '../NavBar/index';
 import Tasks from '../Tasks';
 import './Home.css'
@@ -17,11 +16,6 @@ const Home = () => {
     }, [dispatch, user.id])
 
     const lists =useSelector(state => state.lists.lists)
-    const tasks =useSelector(state => state.tasks.tasks)
-
-    // useEffect(() => {
-    //     dispatch(getAllTasks(listId));
-    // }, [dispatch, listId])
 
     return (
         <>
@@ -35,7 +29,10 @@ const Home = () => {
                 return (
                     <>
                         <div className="task-container">
-                            <div className="list-titles">{list.title}</div>
+                            <div className="list-titles">{list.title}
+                                <i class="fas fa-edit" onClick={() => console.log('clicked edit')}></i>
+                                <i class="fas fa-trash"></i>
+                            </div>
                             <Tasks listId={list.id}/>
                         </div>
                     </>

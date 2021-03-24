@@ -6,9 +6,9 @@ from werkzeug.utils import secure_filename
 
 comment_routes = Blueprint('comments', __name__)
 
-@comment_routes.route('/')
-def comments():
-    comments = Comment.query.all()
+@comment_routes.route('<int:taskId>')
+def comments(taskId):
+    comments = Comment.query.filter().all()
     return {"comments": [comment.to_dict() for comments in comments]}
 
 @comment_routes.route('/create', methods=['POST'])

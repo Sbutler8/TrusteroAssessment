@@ -1,0 +1,22 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.3px;
+}
+
+label {
+    color: white;
+}
+
+.save-button {
+    text-align: center;
+    width: 70px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background: #222223;
+    color: #fff;
+    font-family: system-ui;
+    padding: 10px 0;
+    font-size: 13px;
+    margin: 5px;
+}

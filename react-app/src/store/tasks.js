@@ -21,6 +21,13 @@ export const getAllTasks = (listId) => async (dispatch) => {
   return data.tasks;
 };
 
+// export const setSelectedTask = (task) => async (dispatch) => {
+//   const response = await fetch(`/api/tasks/${listId}`);
+//   let data = await response.json()
+//   dispatch(getTasks(listId,data.tasks));
+//   return data.tasks;
+// };
+
 export const editTaskStatus = (formObj ) => async (dispatch) => {
 
     const { id, status } = formObj;
