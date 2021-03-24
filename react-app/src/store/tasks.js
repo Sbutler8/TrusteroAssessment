@@ -1,10 +1,10 @@
 const GET_TASKS = 'task/getTasks';
 const SET_TASK_STATUS = 'task/setTaskStatus';
 
-const getTasks = (tasks) => {
+const getTasks = (listId,tasks) => {
   return {
     type: GET_TASKS,
-    payload: tasks,
+    listId,tasks,
   };
 };
 
@@ -17,7 +17,7 @@ const setStatus = (status) => ({
 export const getAllTasks = (listId) => async (dispatch) => {
   const response = await fetch(`/api/tasks/${listId}`);
   let data = await response.json()
-  dispatch(getTasks(data.tasks));
+  dispatch(getTasks(listId,data.tasks));
   return data.tasks;
 };
 
@@ -40,7 +40,7 @@ const initialState = {};
 const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_TASKS:
-      return { ...state, tasks: action.payload }
+      return { ...state, [action.listId]: action.tasks }
     case SET_TASK_STATUS:
       return { ...state, task: action.payload };
     default:

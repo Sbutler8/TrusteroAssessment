@@ -14,6 +14,25 @@ body {
     width: 100%;
 }
 
+.list-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.list-titles {
+    font-size: 35px;
+    color: #008c97
+}
+
+.tasks-container {
+    display:  flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .welcome-header {
     position: absolute;
     right: 200px;

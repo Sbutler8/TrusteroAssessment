@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllLists } from '../../store/lists';
 import { getAllTasks } from '../../store/tasks';
 import NavBar from '../NavBar/index';
+import Tasks from '../Tasks';
 import './Home.css'
 
 const Home = () => {
@@ -28,21 +29,19 @@ const Home = () => {
                 <div className="welcome-header">Welcome Back {user.name}!</div>
                 <img src='https://analogtodigitaldash.s3-us-west-1.amazonaws.com/HomePage.png' alt='home-page'></img>
             </div>
+            <div className="list-container">
             {lists &&
             lists.map(list => {
-                // setListId(list.id)
                 return (
                     <>
-                        <div key={list.id} onChange={() => dispatch(getAllTasks(list.id))}>{list.title}</div>
-                        {tasks &&
-                        tasks.map(task => {
-                            return (
-                                <div>{task.description}</div>
-                            )
-                        })}
+                        <div className="task-container">
+                            <div className="list-titles">{list.title}</div>
+                            <Tasks listId={list.id}/>
+                        </div>
                     </>
                 )
             })}
+            </div>
             <NavBar className="navBar"/>
         </>
     )
