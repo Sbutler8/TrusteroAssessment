@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllLists } from '../../store/lists';
+import { getAllLists, removeList } from '../../store/lists';
 import NavBar from '../NavBar/index';
 import Tasks from '../Tasks';
 import './Home.css'
@@ -9,6 +9,8 @@ const Home = () => {
     const dispatch = useDispatch();
 
     const [listId, setListId] = useState(null);
+    const [listTitle, setListTitle] = useState(null);
+    const [editListTitle, setEditListTitle] = useState(true);
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
@@ -29,10 +31,16 @@ const Home = () => {
                 return (
                     <>
                         <div className="task-container">
-                            <div className="list-titles">{list.title}
-                                <i class="fas fa-edit" onClick={() => console.log('clicked edit')}></i>
-                                <i class="fas fa-trash"></i>
-                            </div>
+                            <input
+                                className="list-titles"
+                                placeholder="Title"
+                                type="text"
+                                value={list.title}
+                                onChange={(e) => setEditListTitle(e.target.value)}
+                                readOnly={editListTitle}>
+                            </input>
+                            <i class="fas fa-edit" onClick={() => setEditListTitle(false)}></i>
+                            <i class="fas fa-trash" onClick={() => dispatch(removeList(list))}></i>
                             <Tasks listId={list.id}/>
                         </div>
                     </>

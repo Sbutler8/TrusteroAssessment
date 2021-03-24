@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, List, db
+from app.models import User, List, Task, Comment, db
 from app.helpers import *
 from werkzeug.utils import secure_filename
 
@@ -34,7 +34,13 @@ def add_list():
 
     return car.to_dict()
 
-@list_routes.route('/delete/<int:id>', methods=['DELETE'])
+@list_routes.route('/remove/<int:id>', methods=['DELETE'])
 def delete(id):
-    lists = List.query.byPK(id)
-    return {"lists": [to_do_list.to_dict() for to_do_list in lists]}
+    tasks = Task.query.filter(Task.list_id == id).all()
+
+    for task in tasks:
+        Comment.query.filter(Comment.task_id == task.id).delete()
+
+    Task.query.filter(Task.list_id == id).delete()
+    List.query.filter(List.id == id).delete()
+    db.session.commit()

@@ -76,6 +76,7 @@ const LoginForm = ({...props}) => {
         </div>
         <div>
           <input
+            className="login-input"
             name="email"
             type="text"
             placeholder="Email"
@@ -85,6 +86,7 @@ const LoginForm = ({...props}) => {
         </div>
         <div>
           <input
+            className="login-input"
             name="password"
             type="password"
             placeholder="Password"

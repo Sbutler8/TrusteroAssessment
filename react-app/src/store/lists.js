@@ -49,6 +49,19 @@ export const editListTitle = (formObj ) => async (dispatch) => {
     return res
   };
 
+  export const removeList = (formObj ) => async (dispatch) => {
+
+    const { id, title } = formObj;
+    const formData = { id, title };
+
+    const res = await fetch(`/api/lists/remove/${id}`, {
+      method: "DELETE",
+    });
+
+    dispatch(remove(res));
+    return res
+  };
+
 export const addNewList = (newList) => async (dispatch) => {
 
     const {title} = newList;

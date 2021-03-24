@@ -34,15 +34,17 @@ body {
 
 .list-container {
     display:flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
     margin-top: 10px;
 }
 
 .list-titles {
     font-size: 35px;
-    color: #008c97
+    color: #008c97;
+    border: none;
 }
 
 .welcome-header {
