@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllComments } from '../../store/comments';
 import TaskToggle from "../TaskToggle";
 import './IndividualTask.css';
@@ -14,6 +14,8 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
   useEffect(() => {
       dispatch(getAllComments(selectedTask.id));
   })
+
+  const comments = useSelector(state => state.comments.comments)
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -41,8 +43,19 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
             onChange={(e) => setDescription(e.target.value)}
             required
         />
-        <label>Status: {selectedTask.status ? 'In Progress':'Complete'}</label>
-        <TaskToggle status={selectedTask.status} setStatus={setStatus}/>
+        <label>Status: {status ? 'In Progress':'Complete'}</label>
+        <TaskToggle status={status} setStatus={setStatus}/>
+        <div className="comments-container">
+          <div className="comments-header">Comments</div>
+          {comments &&
+          comments.map(comment => {
+            return (
+              <ul>
+                <li className="comments-list">{comment.comment}</li>
+              </ul>
+            )
+          })}
+        </div>
         <button className="save-button" type="submit">Save</button>
     </form>
   );
