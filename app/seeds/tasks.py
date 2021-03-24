@@ -1,22 +1,22 @@
 from werkzeug.security import generate_password_hash
-from app.models import db, List, Task
+from app.models import db, User, List, Task
 
 
 def seed_tasks():
 
-    home_1 = List.query.filter(List.title == 'Home').first()
-    work_1 = List.query.filter(List.title == 'Work').first()
-    school_1 = List.query.filter(List.title == 'School').first()
-    health_1 = List.query.filter(List.title == 'Health').first()
-    bucketlist_1 = List.query.filter(List.title == 'Bucket List').first()
+    home_1 = List.query.join(User).filter(User.name == 'Demo').filter(List.title == 'Home').first()
+    work_1 = List.query.join(User).filter(User.name == 'Demo').filter(List.title == 'Work').first()
+    school_1 = List.query.join(User).filter(User.name == 'Demo').filter(List.title == 'School').first()
+    health_1 = List.query.join(User).filter(User.name == 'Demo').filter(List.title == 'Health').first()
+    bucketlist_1 = List.query.join(User).filter(User.name == 'Demo').filter(List.title == 'Bucket List').first()
 
-    home_2 = List.query.filter(List.title == 'Home').first()
-    work_2 = List.query.filter(List.title == 'Work').first()
-    miscellaneous_2 = List.query.filter(List.title == 'Miscellaneous').first()
+    home_2 = List.query.join(User).filter(User.name == 'Tom').filter(List.title == 'Home').first()
+    work_2 = List.query.join(User).filter(User.name == 'Tom').filter(List.title == 'Work').first()
+    miscellaneous_2 = List.query.join(User).filter(User.name == 'Tom').filter(List.title == 'Miscellaneous').first()
 
-    work_3 = List.query.filter(List.title == 'Work').first()
-    sports_3 = List.query.filter(List.title == 'Sports').first()
-    random_3 = List.query.filter(List.title == 'Random').first()
+    work_3 = List.query.join(User).filter(User.name == 'Elizabeth').filter(List.title == 'Work').first()
+    sports_3 = List.query.join(User).filter(User.name == 'Elizabeth').filter(List.title == 'Sports').first()
+    random_3 = List.query.join(User).filter(User.name == 'Elizabeth').filter(List.title == 'Random').first()
 
     # Tasks for User, Demo
     task_1 = Task(title='Laundry', description='Finish all laundry', to_do_list=home_1)

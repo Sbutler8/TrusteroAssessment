@@ -1,0 +1,33 @@
+.checkbox {
+    display : none;
+}
+
+.checkbox:checked + .status-toggle {
+    background-color: limegreen;
+}
+
+.checkbox:checked + .status-toggle::after {
+    left : 38px;
+}
+
+.status-toggle {
+    position : relative ;
+    display : inline-block;
+    width: 57px;
+    height: 20px;
+    background-color: red;
+    border-radius: 30px;
+    border: 2px solid gray;
+}
+
+.status-toggle:after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: gray;
+    top: 1px;
+    left: 1px;
+    transition:  all 0.3s;
+}

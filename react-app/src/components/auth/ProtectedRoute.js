@@ -7,7 +7,7 @@ const ProtectedRoute = props => {
 
   return (
     <Route {...props}>
-      {authenticate ? props.children  : <Redirect to="/" />}
+      {authenticate ? props.children  : <Redirect to="/home" />}
     </Route>
   )
 };

@@ -6,9 +6,9 @@ from werkzeug.utils import secure_filename
 
 task_routes = Blueprint('tasks', __name__)
 
-@task_routes.route('/')
-def tasks():
-    tasks = Task.query.all()
+@task_routes.route('/<int:listId>')
+def tasks(listId):
+    tasks = Task.query.filter(Task.list_id == listId).all()
     return {"tasks": [task.to_dict() for task in tasks]}
 
 @task_routes.route('/create', methods=['POST'])
