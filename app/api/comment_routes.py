@@ -8,8 +8,8 @@ comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('<int:taskId>')
 def comments(taskId):
-    comments = Comment.query.filter().all()
-    return {"comments": [comment.to_dict() for comments in comments]}
+    comments = Comment.query.filter(Comment.task_id == taskId).all()
+    return {"comments": [comment.to_dict() for comment in comments]}
 
 @comment_routes.route('/create', methods=['POST'])
 def add_comment():

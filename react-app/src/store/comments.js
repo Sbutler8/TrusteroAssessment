@@ -18,7 +18,7 @@ export const getAllComments = (taskId) => async (dispatch) => {
   const response = await fetch(`/api/comments/${taskId}`);
   let data = await response.json()
   dispatch(getComments(data.comments));
-  return data.tasks;
+  return data.comments;
 };
 
 // export const setSelectedTask = (task) => async (dispatch) => {
@@ -44,10 +44,10 @@ export const editTaskStatus = (formObj ) => async (dispatch) => {
 
 const initialState = {};
 
-const taskReducer = (state = initialState, action) => {
+const commentReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COMMENTS:
-      return { ...state, comments: action.comments }
+      return { ...state, comments: action.payload }
     case SET_TASK_STATUS:
       return { ...state, task: action.payload };
     default:
@@ -55,4 +55,4 @@ const taskReducer = (state = initialState, action) => {
   }
 };
 
-export default taskReducer;
+export default commentReducer;
