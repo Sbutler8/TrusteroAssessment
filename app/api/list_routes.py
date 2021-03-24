@@ -11,7 +11,7 @@ def lists():
     lists = List.query.all()
     return {"lists": [to_do_list.to_dict() for to_do_list in lists]}
 
-@list_routes.route('/create', methods: ['POST'])
+@list_routes.route('/create', methods=['POST'])
 def add_list():
     """
     Adds list created from user to db
@@ -34,7 +34,7 @@ def add_list():
 
     return car.to_dict()
 
-@list_routes.route('/delete/<:id>', methods: ['DELETE'])
+@list_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete(id):
     lists = List.query.byPK(id)
     return {"lists": [to_do_list.to_dict() for to_do_list in lists]}

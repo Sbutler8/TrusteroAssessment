@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     pic = db.Column(db.String, nullable=True)
 
-    user = db.relationship("MapBookmark", back_populates="bookmarks")
+    lists = db.relationship("List", back_populates="user")
 
     @property
     def password(self):
@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
           "id": self.id,
-          "username": self.name,
+          "name": self.name,
           "email": self.email,
           "pic": self.pic
         }
