@@ -4,7 +4,7 @@ class Task(db.Model):
     __tablename__ = 'tasks'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(40), nullable=False, unique=True)
+    title = db.Column(db.String(40), nullable=False, unique=False)
     description = db.Column(db.Text, nullable=True, unique=False)
     status = db.Column(db.Boolean, nullable=False, unique=False, default=False)
     list_id = db.Column(db.Integer, db.ForeignKey('lists.id'), nullable=False)

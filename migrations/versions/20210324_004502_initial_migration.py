@@ -1,8 +1,8 @@
 """Initial migration.
 
-Revision ID: ad06d2139672
+Revision ID: aa5727f4f6cd
 Revises: 
-Create Date: 2021-03-23 14:16:48.039000
+Create Date: 2021-03-24 00:45:02.967872
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ad06d2139672'
+revision = 'aa5727f4f6cd'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,8 +33,7 @@ def upgrade():
     sa.Column('title', sa.String(length=40), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('title')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('tasks',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -43,16 +42,14 @@ def upgrade():
     sa.Column('status', sa.Boolean(), nullable=False),
     sa.Column('list_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['list_id'], ['lists.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('title')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('comments',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=40), nullable=False),
+    sa.Column('comment', sa.Text(), nullable=False),
     sa.Column('task_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('title')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 
