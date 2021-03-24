@@ -5,6 +5,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import NavBar from './components/NavBar'
 import * as sessionActions from './store/session'
 import Home from "./components/Home";
+import SplashPage from "./components/SplashPage";
 
 function App() {
 
@@ -23,10 +24,10 @@ function App() {
 
   return (
     <BrowserRouter>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
             <Route path="/" exact={true}>
-                <Home  />
+                <SplashPage  />
             </Route>
             <ProtectedRoute path="/" exact={true} >
                 <h1>My Home Page</h1>

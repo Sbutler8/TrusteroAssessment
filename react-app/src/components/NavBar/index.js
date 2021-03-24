@@ -1,13 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session'
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
+import LoginForm from '../auth/LoginForm';
+import { Modal } from '../../context/Modal';
+import * as sessionActions from '../../store/session'
 import './NavBar.css';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const authenticate = useSelector((state) => state.session.authenticate);
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const handleLogout = () => {
     dispatch(sessionActions.logout());
@@ -30,10 +33,15 @@ const NavBar = () => {
           }
           {!authenticate &&
           <>
-            <Link className="menu-item lightblue" id="login" to="/" ></Link>
+            <Link className="menu-item lightblue" id="login" to="/" onClick={() => setShowLoginModal(true)} ><span>Login</span></Link>
           </>
           }
         </nav>
+        {showLoginModal &&
+          <Modal onClose={() => setShowLoginModal(false)} name="login">
+            <LoginForm setShowLoginModal={setShowLoginModal}/>
+          </Modal>
+        }
     </>
   );
 }

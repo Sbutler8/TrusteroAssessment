@@ -4,17 +4,13 @@ import * as sessionActions from "../../store/session";
 import './LoginFormModal.css'
 
 
-const LoginForm = ({selectedUser, setShowLoginModal, setShowCarModal, setShowProfileModal}) => {
+const LoginForm = ({...props}) => {
 
   const dispatch = useDispatch();
 
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    setEmail(selectedUser.email)
-  },[dispatch, selectedUser.email])
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -24,8 +20,7 @@ const LoginForm = ({selectedUser, setShowLoginModal, setShowCarModal, setShowPro
     } else {
       dispatch(sessionActions.login({email, password}))
     }
-    setShowLoginModal(false)
-    setShowCarModal(true)
+    props.setShowLoginModal(false)
   };
 
   const getPassword = () => {
@@ -40,8 +35,8 @@ const LoginForm = ({selectedUser, setShowLoginModal, setShowCarModal, setShowPro
 
   return (
     <>
-    <button className="left-button-container" type="button" onClick={() => {setShowLoginModal(false);setShowProfileModal(true)}}><i className="fas fa-arrow-left"></i></button>
-    <div id="login-header">Welcome back {selectedUser.username}!</div>
+    <button className="left-button-container" type="button" onClick={() => {props.setShowLoginModal(false)}}><i className="fas fa-arrow-left"></i></button>
+    <div id="login-header">Welcome back!</div>
       <form className="login-form" onSubmit={onLogin}>
         <div>
           {errors.map((error) => (
