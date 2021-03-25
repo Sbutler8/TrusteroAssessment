@@ -1,8 +1,3 @@
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-<!--ReactSkipperStart -->
 
 <br />
 <p align="center">
@@ -71,7 +66,7 @@ This Todos List web application gives users the ability to create new tasks asso
 #### 9. Ability to delete comments 
 #### 10. Custon small navBar for logging in and out
 
-#### Additional Things To Tackle
+### Additional Things To Tackle
 #### 1. Edit List Title
 #### 2. Fix task toggle to change to green when task complete
 #### 2. Further front-end to work on and make aesthetically pleasing
@@ -79,13 +74,3 @@ This Todos List web application gives users the ability to create new tasks asso
 
 ![Alt text](https://analogtodigitaldash.s3-us-west-1.amazonaws.com/Trustero.gif)
 
-[contributors-shield]: https://img.shields.io/github/contributors/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
-[contributors-url]: https://github.com/Sbutler8/TrusteroAssessment/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
-[forks-url]: https://github.com/Sbutler8/TrusteroAssessment/network/members
-[stars-shield]: https://img.shields.io/github/stars/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
-[stars-url]: https://github.com/Sbutler8/TrusteroAssessment/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
-[issues-url]: https://github.com/Sbutler8/TrusteroAssessment/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/samantha-butler-410675178/
