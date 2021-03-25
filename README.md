@@ -72,5 +72,6 @@ This Todos List web application gives users the ability to create new tasks asso
 #### 2. Further front-end to work on and make aesthetically pleasing
 #### 4. Show changes made with re-render (Just need to add a few dependencies to useEffect())
 
+
 ![Alt text](https://analogtodigitaldash.s3-us-west-1.amazonaws.com/Trustero.gif)
 
