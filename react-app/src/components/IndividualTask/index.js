@@ -43,13 +43,13 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
             required
         />
         <label>Description</label>
-        <input id="description"
+        <textarea id="description"
             placeholder={selectedTask.description}
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-        />
+        ></textarea>
         <label>Status: {status ? 'In Progress':'Complete'}</label>
         <TaskToggle status={status} setStatus={setStatus}/>
         <div className="comments-container">
@@ -77,6 +77,9 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
           >
           </textarea>
         </div>
+        {/* {comment &&
+        <button className="add-comment-button" >Add comment</button>
+        } */}
         <button className="save-button" type="submit">Save</button>
     </form>
   );

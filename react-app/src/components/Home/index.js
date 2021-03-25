@@ -1,4 +1,4 @@
-import React, { isValidElement, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllLists, removeList } from '../../store/lists';
 import NavBar from '../NavBar/index';
@@ -17,7 +17,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getAllLists(user.id));
-    }, [dispatch, user.id])
+    }, [dispatch, user])
 
 
     return (

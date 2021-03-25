@@ -16,8 +16,9 @@ const add = (comment) => {
   };
 };
 
-const remove = () => ({
-  type: REMOVE_COMMENT
+const remove = (id) => ({
+  type: REMOVE_COMMENT,
+  payload: id,
 });
 
 
@@ -50,8 +51,9 @@ export const addComment = (formObj) => async (dispatch) => {
     const res = await fetch(`/api/comments/remove/${id}`, {
       method: "DELETE",
     });
+    console.log('RES',res)
 
-    dispatch(remove(res));
+    dispatch(remove(id));
     return res
   };
 
@@ -72,8 +74,8 @@ const commentReducer = (state = initialState, action) => {
     case ADD_COMMENT:
       return { ...state, comments: action.payload }
     case REMOVE_COMMENT:
-        let newState = Object.assign({}, state, { comment: null });
-        return newState;
+      let newState = {comments: [...state.comments.filter((comment) => comment.id !== action.payload)]};
+      return newState;
     default:
       return state;
   }

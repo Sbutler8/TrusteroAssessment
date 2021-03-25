@@ -14,7 +14,7 @@ def comments(taskId):
 @comment_routes.route('/add/<int:id>', methods=['POST'])
 def add_comment(id):
 
-    task = Task.query.get(id)
+    # task = Task.query.get(id)
     form = request.get_json(force=True)
 
     comment = Comment(
@@ -24,10 +24,15 @@ def add_comment(id):
     db.session.add(comment)
     db.session.commit()
 
-    return {'comment': comment.to_dict()}
+    comments = Comment.query.filter(Comment.task_id == id).all()
+
+    return {'comments': [comment.to_dict() for comment in comments]}
 
 @comment_routes.route('/remove/<int:id>', methods=['DELETE'])
 def delete(id):
-    comment = Comment.query.filter(Comment.id == id).delete()
+    comment = Comment.query.get(id)
+
+    db.session.delete(comment)
     db.session.commit()
-    return
+
+    return 'comment deleted'

@@ -14,12 +14,14 @@ function Tasks({ listId }) {
     const [showTaskModal, setShowTaskModal] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
 
-    let tasks = useSelector(state => state.tasks)
-    const taskArray = Object.values(tasks);
+    let tasks = useSelector(state => state.tasks);
+    let user = useSelector(state => state.session.user)
+    const taskArray = tasks[listId]
 
     useEffect(() => {
+        console.log('HERE')
         dispatch(getAllTasks(listId))
-    }, [listId, dispatch])
+    }, [listId, dispatch, user])
 
     if (!taskArray) {
         return null;
@@ -27,7 +29,7 @@ function Tasks({ listId }) {
 
     return (
         <div className="tasks-container">
-            {taskArray[listId-1] && taskArray[listId-1].map((task,i) => {
+            {taskArray && taskArray.map((task,i) => {
                 return (
                     <div key={i}>
                         <Link to='/home' onClick={() => {setShowTaskModal(true); setSelectedTask(task)}} >

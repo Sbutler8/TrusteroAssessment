@@ -44,3 +44,5 @@ def delete(id):
     Task.query.filter(Task.list_id == id).delete()
     List.query.filter(List.id == id).delete()
     db.session.commit()
+
+    return 'List Remove'
