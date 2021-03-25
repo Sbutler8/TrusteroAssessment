@@ -17,10 +17,8 @@ This Todos List web application gives users the ability to view tasks associated
 <a href="https://reactjs.org/"><img alt="React" src="https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black" /></a>
 <a href="https://redux.js.org/"><img alt="Redux" src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=Redux&logoColor=white" /></a>
 <a href="https://reactrouter.com/"><img alt="React Router" src="https://img.shields.io/badge/-React%20Router-CA4245?style=flat-square&logo=React-Router&logoColor=white" /></a>
-<a href="https://developers.google.com/maps"><img alt="Google Maps" src="https://img.shields.io/badge/-Google%20Maps-4285F4?style=flat-square&logo=Google%20Maps&logoColor=white" /></a>
 <a href="https://devdocs.io/css/"><img alt="CSS3" src="https://img.shields.io/badge/-CSS3%20-61DAFB?style=flat-square&logo=CSS3&logoColor=white&color=brightgreen"/></a>
 <a href="https://devdocs.io/html/"><img alt="HTML5" src="https://img.shields.io/badge/-HTML5%20-61DAFB?style=flat-square&logo=HTML5&logoColor=white&color=blue"/></a>
-<a href="https://github.com/d3/"><img alt="d3" src="https://img.shields.io/badge/-d3%20-orange?style=flat-square&logo=d3%20&logoColor=white" /></a>
 
 #### Back End
 
@@ -28,8 +26,6 @@ This Todos List web application gives users the ability to view tasks associated
 <a href="https://flask.palletsprojects.com/en/1.1.x/"><img alt="Flask" src="https://img.shields.io/badge/-Flask-000000?style=flat-square&logo=Flask&logoColor=white" /></a>
 <a href="https://www.postgresql.org/"><img alt="PostgreSQL" src="https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=PostgreSQL&logoColor=white" /></a>
 <a href="https://aws.amazon.com/"><img alt="Amazon AWS" src="https://img.shields.io/badge/-Amazon%20AWS-232F3E?style=flat-square&logo=Amazon%20AWS&logoColor=white" /></a>
-<a href="https://flask-socketio.readthedocs.io/en/latest/"><img alt="Flask SocketIO" src="https://img.shields.io/badge/Flask%20SocketIO-Flask%20SocketIObrightgreen" /></a>
-<a href="https://socket.io/docs/v3/index.html"><img alt="socket.io" src="https://img.shields.io/badge/socket.io-socket.io-red" /></a>
 
 #### Deployment and Package Management
 
