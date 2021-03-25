@@ -73,5 +73,5 @@ This Todos List web application gives users the ability to create new tasks asso
 #### 4. Show changes made with re-render (Just need to add a few dependencies to useEffect())
 
 
-![Alt text](https://analogtodigitaldash.s3-us-west-1.amazonaws.com/Trustero.gif)
+![Alt text](https://github.com/Sbutler8/TrusteroAssessment/blob/main/react-app/public/images/Trustero.gif)
 
