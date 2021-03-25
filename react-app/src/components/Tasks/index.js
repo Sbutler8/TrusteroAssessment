@@ -14,13 +14,12 @@ function Tasks({ listId }) {
     const [showTaskModal, setShowTaskModal] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
 
+    let tasks = useSelector(state => state.tasks)
+    const taskArray = Object.values(tasks);
+
     useEffect(() => {
         dispatch(getAllTasks(listId))
-    }, [listId])
-
-    let tasks = useSelector(state => state.tasks)
-
-    const taskArray = Object.values(tasks);
+    }, [listId, dispatch])
 
     if (!taskArray) {
         return null;

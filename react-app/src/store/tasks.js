@@ -1,5 +1,5 @@
 const GET_TASKS = 'task/getTasks';
-const SET_TASK_STATUS = 'task/setTaskStatus';
+const SET_TASK = 'task/setTask';
 
 const getTasks = (listId,tasks) => {
   return {
@@ -8,9 +8,9 @@ const getTasks = (listId,tasks) => {
   };
 };
 
-const setStatus = (status) => ({
-  type: SET_TASK_STATUS,
-  payload: status
+const setTask = (task) => ({
+  type: SET_TASK,
+  payload: task
 });
 
 
@@ -28,17 +28,18 @@ export const getAllTasks = (listId) => async (dispatch) => {
 //   return data.tasks;
 // };
 
-export const editTaskStatus = (formObj ) => async (dispatch) => {
+export const editTask = (formObj) => async (dispatch) => {
 
-    const { id, status } = formObj;
-    const formData = { id, status };
+    const { id, title, description, status } = formObj;
+    const formData = { id, title, description, status };
+    console.log('formData:',formData)
 
-    const res = await fetch(`/api/tasks/${id}`, {
-      method: "PATCH",
+    const res = await fetch(`/api/tasks/edit/${id}`, {
+      method: "PUT",
       body: JSON.stringify(formData),
     });
 
-    dispatch(setStatus(res));
+    dispatch(setTask(res));
     return res
   };
 
@@ -48,7 +49,7 @@ const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_TASKS:
       return { ...state, [action.listId]: action.tasks }
-    case SET_TASK_STATUS:
+    case SET_TASK:
       return { ...state, task: action.payload };
     default:
       return state;
