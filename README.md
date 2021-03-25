@@ -7,7 +7,7 @@
   
 <h1 align="center"> Trustero Assessment </h1>
 
-This Todos List web application gives users the ability to create new tasks associated with individual lists of their choosing. Need to expand on those tasks? No worries! Users can simply add individual comments to each task. Using the easy-to-use toggle, users can keep track of which tasks are in progress and which are completed. This feature rich app doesn't stop there. No longer need the comment, task or list created? Users have the ability to remove any which one they would like. Login using the pre-loaded demo user to experience this feature-rich app now! [here](https://trusteroassessment.herokuapp.com/home).
+This Todos List web application gives users the ability to view tasks associated with individual lists of their choosing. Need to expand on those tasks? No worries! Users can simply add individual comments to each task. Using the easy-to-use toggle, users can keep track of which tasks are in progress and which are completed. This feature rich app doesn't stop there. No longer need the comment or list created? Users have the ability to remove any which one they would like. Login using the pre-loaded demo user to experience this feature-rich app now! [here](https://trusteroassessment.herokuapp.com/home).
 
 ### Built With
 
