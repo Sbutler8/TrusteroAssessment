@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch} from 'react-redux';
-import { Link, useParams, Redirect } from "react-router-dom";
+import IndividualTask from '../IndividualTask/index';
+import { Link } from "react-router-dom";
+import { Modal } from '../../context/Modal';
 import { getAllTasks } from '../../store/tasks';
+import { setSelectedTask } from '../../store/tasks';
 import TaskToggle from "../TaskToggle";
 import './Tasks.css';
 
 function Tasks({ listId }) {
     const dispatch = useDispatch();
 
+    const [showTaskModal, setShowTaskModal] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null);
+
+    let tasks = useSelector(state => state.tasks);
+    let user = useSelector(state => state.session.user)
+    const taskArray = tasks[listId]
+
     useEffect(() => {
+        console.log('HERE')
         dispatch(getAllTasks(listId))
-    }, [listId])
-
-    let tasks = useSelector(state => state.tasks)
-
-    const taskArray = Object.values(tasks);
+    }, [listId, dispatch, user])
 
     if (!taskArray) {
         return null;
@@ -22,10 +29,10 @@ function Tasks({ listId }) {
 
     return (
         <div className="tasks-container">
-            {taskArray[listId-1] && taskArray[listId-1].map((task,i) => {
+            {taskArray && taskArray.map((task,i) => {
                 return (
-                    <div key={i} className="tasks-container">
-                        <Link to='' onClick={() => alert('Please sign in to view project details.')} >
+                    <div key={i}>
+                        <Link to='/home' onClick={() => {setShowTaskModal(true); setSelectedTask(task)}} >
                             <div className="task-title" >{task.title}</div>
                         </Link>
                         {/* <div className="task-carousel">{task.description}</div>
@@ -33,6 +40,11 @@ function Tasks({ listId }) {
                     </div>
                 )
             })}
+            {showTaskModal &&  (
+                <Modal onClose={() => setShowTaskModal(false)} name="task">
+                    <IndividualTask setShowTaskModal={setShowTaskModal} selectedTask={selectedTask}/>
+                </Modal>
+            )}
         </div>
     );
 }

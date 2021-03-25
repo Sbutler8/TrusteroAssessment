@@ -38,15 +38,13 @@ label {
     color: #EF3F33;
 }
 
-input {
-    width: 100%;
+.login-input {
+    width:100%;
     height: 40px;
     color: #000;
     border: 1px solid #bcbcbc;
-    border-radius: 50%;
+    border-radius: 5px;
     outline: none;
-    margin-bottom: 20px;
-    padding: 15px;
 }
 
 #login-header {
