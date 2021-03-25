@@ -6,15 +6,13 @@
 
 <br />
 <p align="center">
-  <a href="https://analog-to-digital-dash.herokuapp.com/">
-    <img src="https://raw.githubusercontent.com/Sbutler8/TrusteroAssessment/db/final_fav.jpg.png"  alt="Logo" width="auto" height="120">
+  <a href="https://trusteroassessment.herokuapp.com/home">
+    <img src="https://analogtodigitaldash.s3-us-west-1.amazonaws.com/SplashPage.png"  alt="Logo" width="auto" height="120">
   </a>
   
 <h1 align="center"> Trustero Assessment </h1>
 
-This application is for users who love the latest and greatest trends in today's automotive industry. I have had a dream of converting my old 1988 Mazda's analog dashboard into a digital touch screen. This app is meant to mimic the conversion of an older cars analog dashboard to that of a newer digital dashboard. In order to do so realistically one would connect a raspberryPi and Arduino to the On Board Diagnostics (OBD) Port in their car via serial cable. Nearly every car made after 1996 has an OBD2 port which can send parameter IDs, making it possible to extract human-readable data from your car such as speed, RPM, throttle position, and much more.
-
-Ideally, this custom app will be robust enough to take in any cars serial data and parse it into meaningful signals and data displayed on a new digital touch screen no matter how old the car. With that being said, in order to narrow down the complexity and get a feel for the application in full I have "mimicked" some of the signals a car might emit making this an integrated systems project using the Arduino Uno microcontroller. The hardware connected to the Arduino is reading serial data in real time and sending it to the current dashboard display. Want to give it a spin? Check out the wiring diagram found on the next page. Don't have the hardware? Don't worry I have created full-blown functionality through just the web-app itself. Feel free to check out the live site [here](https://analog-to-digital-dash.herokuapp.com/).
+This Todos List web application gives users the ability to create new tasks associated with individual lists of their choosing. Need to expand on those tasks? No worries! Users can simply add individual comments to each task. Using the easy-to-use toggle, users can keep track of which tasks are in progress and which are completed. This feature rich app doesn't stop there. No longer need the comment, task or list created? Users have the ability to remove any which one they would like. Login using the pre-loaded demo user to experience this feature-rich app now! [here](https://trusteroassessment.herokuapp.com/home).
 
 ### Built With
 
@@ -48,36 +46,38 @@ Ideally, this custom app will be robust enough to take in any cars serial data a
 
 ### Installation
 
-1. Clone the repo `git clone https://github.com/Sbutler8/TrusteroAssessment.git`
-2. Create root .env file based on example .env-example file `touch .env`
-3. Create frontend .env file based on example .env-frontend-example `cd react-app/ && touch .env`
-4. Install backend dependencies `cd TrusteroAssessment/react-app/ && pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
-5. Install frontend dependencies `cd ../react-app && npm install`
-6. Start virtual environment in frontend `cd .. && pipenv shell`
-7. Apply the migration to the database `flask db upgrade`
-8. Seed the database `flask seed all`
-9. Start backend `flask run`
-10. Open new terminal and start frontend `cd ../react-app && npm start`
-11. Open browser to http://localhost:3000/
+1. Clone the repo `git clone https://github.com/Sbutler8/TrusteroAssessment`
+2. Change directories `cd TrusteroAssessment` 
+3. Create root .env file based on example .env-example file `touch .env`
+4. Create frontend .env file based on example .env-frontend-example `cd react-app/ && touch .env`
+5. Install backend dependencies `cd TrusteroAssessment/react-app/ && pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt`
+6. Install frontend dependencies `cd ../react-app && npm install`
+7. Start virtual environment in frontend `cd .. && pipenv shell`
+8. Apply the migration to the database `flask db upgrade`
+9. Seed the database `flask seed all`
+10. Start backend `flask run`
+11. Open new terminal and start frontend `cd ../react-app && npm start`
+12. Open browser to http://localhost:3000/
 
 ### Features
-#### 1. Display the following live serial data:
-   * speed in [mph]
-   * warning gas light
-   * warning lights on light
-   * warning low oil light
-   * warning battery light
-   * warning check engine light
-#### 2. The ability to upload user profile photos and an image of their car using AWS S3 third party API
-#### 3. Weather data displayed and updated every five minutes based off current location
-#### 4. Live geolocation services pinpointing where the user is in real time using Google Maps API
-#### 5. Auto complete Google Maps dropdown for a simpler directions lookup prefill option. 
-#### 6. Google Maps visualization of directions from current location to input destination.
-#### 7. Step-by-step directions in an easy to follow list format.
-#### 8. On Board Diagnostic Parameter IDs (OBD PIDs) lookup to decode what the error code your car is throwing means. Used implementing IBM's Car API.
-#### 9. The ability to change which car you are driving with customized pre-filled fields when performing PID code lookups.
-#### 10. Ability to see full stack web application features in full with or without the Arduino hardware using easy toggle switch.
-![Alt text](https://github.com/Sbutler8/converted-analog-to-digital-dash/blob/main/react-app/public/solo_project_2_screen_recording.gif)
+#### 1. User Authentication login on custom Splash Page
+#### 2. User login pre-filled sign in fields
+#### 3. Modulized routing for lists, tasks, and comments
+#### 4. Pre-seeded data for each user in order to see the application in full
+#### 5. Home page rendering view of all lists and tasks associated with each list
+#### 6. Ability to delete list with all tasks and comments deleted with it
+#### 7. Ability to view task details in context modal with title, description, and comments
+#### 8. Ability to add comments 
+#### 9. Ability to delete comments 
+#### 10. Custon small navBar for logging in and out
+
+#### Additional Things To Tackle
+#### 1. Edit List Title
+#### 2. Fix task toggle to change to green when task complete
+#### 2. Further front-end to work on and make aesthetically pleasing
+#### 4. Show changes made with re-render (Just need to add a few dependencies to useEffect())
+
+![Alt text](https://analogtodigitaldash.s3-us-west-1.amazonaws.com/Trustero.gif)
 
 [contributors-shield]: https://img.shields.io/github/contributors/Sbutler8/TrusteroAssessment.svg?style=for-the-badge
 [contributors-url]: https://github.com/Sbutler8/TrusteroAssessment/graphs/contributors
