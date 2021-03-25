@@ -31,7 +31,7 @@ export function Modal({ onClose, children, name }) {
       <div onClick={onClose} className='modal-background'/>
       <div
         className={name==="login" ? 'modal-content'
-        :name==="signup" ? 'signup-modal-content':null}
+        :name==="task" ? 'task-modal-content':null}
       >
         {children}
       </div>

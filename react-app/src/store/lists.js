@@ -18,8 +18,9 @@ const getLists = (lists) => {
   };
 };
 
-const remove = () => ({
-  type: REMOVE_LIST
+const remove = (id) => ({
+  type: REMOVE_LIST,
+  payload: id
 });
 
 const setTitle = (title) => ({
@@ -46,6 +47,19 @@ export const editListTitle = (formObj ) => async (dispatch) => {
     });
 
     dispatch(setTitle(res));
+    return res
+  };
+
+  export const removeList = (formObj ) => async (dispatch) => {
+
+    const { id, title } = formObj;
+    const formData = { id, title };
+
+    const res = await fetch(`/api/lists/remove/${id}`, {
+      method: "DELETE",
+    });
+
+    dispatch(remove(formData.id));
     return res
   };
 
@@ -79,7 +93,7 @@ const listReducer = (state = initialState, action) => {
     case GET_LISTS:
       return { ...state, lists: action.payload }
     case REMOVE_LIST:
-      newState = Object.assign({}, state, { list: null });
+      let newState = {lists: [...state.lists.filter((list) => list.id !== action.payload)]};
       return newState;
     case SET_LIST_TITLE:
       return { ...state, file: action.payload };

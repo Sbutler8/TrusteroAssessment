@@ -34,26 +34,17 @@ def add_comment():
 
     return task.to_dict()
 
-@task_routes.route('/<int:id>', methods=['PUT'])
-@login_required
+@task_routes.route('/edit/<int:id>', methods=['PUT'])
 def edit_task(id):
-    if request.method == 'PUT':
-        data = request.json
+    task = Task.query.get(id)
+    data = request.get_json(force=True)
+    print('BE data:-------------->', data)
 
-        task = Task.query.get(id)
-        for key, value in data['db'].items():
-            setattr(task, key, value)
-
-        try:
-            db.session.commit()
-            task_json = jsonify({'task': {'tasks': task.to_dict()}})
-            return task_json
-        except SQLAlchemyError as e:
-            error = str(e.__dict__['orig'])
-            print(error)
-            db.session.rollback()
-            return {'errors': ['An error occurred while retrieving the data']}, 500
-
+    task.title = data['title']
+    task.description = data['description']
+    task.status = data['status']
+    db.session.commit()
+    return task.to_dict()
 
 @task_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete(id):

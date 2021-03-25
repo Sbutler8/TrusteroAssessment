@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal'
 import LoginForm from '../auth/LoginForm';
-import SignUpForm from '../auth/SignUpForm';
 
-function ModalViews({setShowProfileModal, showCarModal, setShowCarModal}) {
+function ModalViews({...props}) {
     const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showSignupModal, setShowSignupModal] = useState(false);
-    const [selectedUser, setSelectedUser] = useState({});
+    const [showTaskModal, setShowTaskModal] = useState(false);
 
     return (
       <>
         {showLoginModal &&  (
           <Modal onClose={() => setShowLoginModal(false)} name="login">
-            <LoginForm setShowLoginModal={setShowLoginModal} selectedUser={selectedUser}/>
+            <LoginForm setShowLoginModal={setShowLoginModal}/>
           </Modal>
         )}
-        {showSignupModal &&  (
-        <Modal onClose={() => setShowSignupModal(false)} name="signup">
-          <SignUpForm setShowSignupModal={setShowSignupModal}/>
-        </Modal>
+        {showTaskModal &&  (
+          <Modal onClose={() => setShowTaskModal(false)} name="task">
+            <IndividualTask setShowTaskModal={setShowTaskModal}/>
+          </Modal>
         )}
       </>
     );

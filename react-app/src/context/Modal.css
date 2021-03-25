@@ -31,20 +31,17 @@
     box-shadow: 0px 0px 70px 1px rgb(54 183 207)
   }
 
-  .signup-modal-content {
+  .task-modal-content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     position: absolute;
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(236,26,26,1) 0%, rgba(0,10,11,1) 100%);
-    height: 455px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(58,216,162,1) 0%, rgba(0,5,3,1) 100%);
     width: 358px;
-    top: 12px;
-    left: 180px;
     border-radius: 10px;
-    box-shadow: 0px 0px 80px 1px rgba(236,26,26,1)
+    box-shadow: 0px 0px 80px 1px rgba(58,216,162,1)
   }
 
   form {

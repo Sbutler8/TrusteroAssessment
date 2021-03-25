@@ -5,6 +5,24 @@ body {
     letter-spacing: -0.3px;
 }
 
+.fa-edit, .fa-trash {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.fa-edit {
+    color: #FFC240;
+}
+
+.fa-trash {
+    margin-right: 10px;
+    color: red;
+}
+
+.fa-edit:hover, .fa-trash:hover {
+    cursor: pointer;
+}
+
 .header-container {
     position: relative;
     top: 0px;
@@ -16,21 +34,17 @@ body {
 
 .list-container {
     display:flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
     margin-top: 10px;
 }
 
 .list-titles {
     font-size: 35px;
-    color: #008c97
-}
-
-.tasks-container {
-    display:  flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    color: #008c97;
+    border: none;
 }
 
 .welcome-header {
