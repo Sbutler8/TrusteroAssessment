@@ -11,6 +11,7 @@ const Lists = () => {
 
     const [title, setTitle] = useState();
     const [editListTitle, setEditListTitle] = useState(true);
+    const [list, setList] = useState({});
     const [showConfirmModal, setShowConfirmModal] = useState(false);
 
     const user = useSelector(state => state.session.user);
@@ -19,11 +20,6 @@ const Lists = () => {
     useEffect(() => {
         dispatch(getAllLists(user.id));
     }, [dispatch, user])
-
-
-    const handleEditListTitle = () => {
-
-    }
 
     return (
         <>
@@ -41,7 +37,7 @@ const Lists = () => {
                             autoFocus={true}>
                         </input>
                         <i className="fas fa-edit" onClick={() => setEditListTitle(false)}></i>
-                        <i className="fas fa-trash" onClick={() => setShowConfirmModal(true)}></i>
+                        <i className="fas fa-trash" onClick={() => {setList(list); setShowConfirmModal(true)}}></i>
                         <Tasks listId={list.id}/>
                     </div>
                 )
@@ -49,7 +45,7 @@ const Lists = () => {
         </div>
         {showConfirmModal &&
         <Modal onClose={() => setShowConfirmModal(false)} name="warning">
-            <ConfirmModal setShowConfirmModal={setShowConfirmModal}/>
+            <ConfirmModal setShowConfirmModal={setShowConfirmModal} list={list}/>
         </Modal>
         }
         </>
