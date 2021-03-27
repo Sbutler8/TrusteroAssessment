@@ -19,7 +19,6 @@ function Tasks({ listId }) {
     const taskArray = tasks[listId]
 
     useEffect(() => {
-        console.log('HERE')
         dispatch(getAllTasks(listId))
     }, [listId, dispatch, user])
 

@@ -24,9 +24,9 @@ def add_comment(id):
     db.session.add(comment)
     db.session.commit()
 
-    comments = Comment.query.filter(Comment.task_id == id).all()
+    # comments = Comment.query.filter(Comment.task_id == id).all()
 
-    return {'comments': [comment.to_dict() for comment in comments]}
+    return comment.to_dict()
 
 @comment_routes.route('/remove/<int:id>', methods=['DELETE'])
 def delete(id):

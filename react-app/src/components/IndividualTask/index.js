@@ -21,6 +21,11 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
 
   const comments = useSelector(state => state.comments.comments)
 
+  const handleAddTask = () => {
+    dispatch(addComment({comment, id:selectedTask.id}));
+    setComment('');
+  }
+
   const handleSubmit = (e) => {
       e.preventDefault();
       console.log('status:', status)
@@ -69,6 +74,7 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
           })}
         </div>
         <div className="add-comment-container" hidden={addedComment}>
+          <i id="add-comment-plus" className="fas fa-plus" onClick={() => handleAddTask()}></i>
           <textarea className="add-comment-text-area"
           placeholder="Add comment"
           type="text"

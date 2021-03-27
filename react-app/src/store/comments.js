@@ -42,7 +42,7 @@ export const addComment = (formObj) => async (dispatch) => {
     body: JSON.stringify(formData),
   });
     let data = await res.json();
-    dispatch(add(data.comment));
+    dispatch(add(data));
     return res;
   }
 
@@ -72,7 +72,7 @@ const commentReducer = (state = initialState, action) => {
     case GET_COMMENTS:
       return { ...state, comments: action.payload }
     case ADD_COMMENT:
-      return { ...state, comments: action.payload }
+      return { ...state, comments: [...state.comments, action.payload] }
     case REMOVE_COMMENT:
       let newState = {comments: [...state.comments.filter((comment) => comment.id !== action.payload)]};
       return newState;
