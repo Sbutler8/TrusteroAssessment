@@ -5,7 +5,7 @@ import { getAllComments, addComment, removeComment } from '../../store/comments'
 import TaskToggle from "../TaskToggle";
 import './IndividualTask.css';
 
-function IndividualTask({setShowTaskModal, selectedTask}) {
+const IndividualTask = ({setShowTaskModal, selectedTask}) => {
   const dispatch = useDispatch();
   console.log(selectedTask)
 
@@ -83,9 +83,6 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
           >
           </textarea>
         </div>
-        {/* {comment &&
-        <button className="add-comment-button" >Add comment</button>
-        } */}
         <button className="save-button" type="submit">Save</button>
     </form>
   );

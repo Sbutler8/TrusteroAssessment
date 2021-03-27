@@ -2,12 +2,16 @@
     display : none;
 }
 
-.checkbox:checked + .status-toggle {
+.checkbox:checked + .status-toggle::after {
+    left : 38px;
+}
+
+.complete {
     background-color: limegreen;
 }
 
-.checkbox:checked + .status-toggle::after {
-    left : 38px;
+.in-progress {
+    background-color: red;
 }
 
 .status-toggle {
@@ -15,7 +19,6 @@
     display : inline-block;
     width: 57px;
     height: 20px;
-    background-color: red;
     border-radius: 30px;
     border: 2px solid gray;
 }
