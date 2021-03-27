@@ -17,7 +17,7 @@ const IndividualTask = ({setShowTaskModal, selectedTask}) => {
 
   useEffect(() => {
       dispatch(getAllComments(selectedTask.id));
-  }, [dispatch])
+  }, [dispatch, selectedTask.id])
 
   const comments = useSelector(state => state.comments.comments)
 
@@ -29,10 +29,7 @@ const IndividualTask = ({setShowTaskModal, selectedTask}) => {
   const handleSubmit = (e) => {
       e.preventDefault();
       console.log('status:', status)
-      dispatch(editTask({ id:selectedTask.id, title, description, status }))
-      if (comment) {
-          dispatch(addComment({comment, id:selectedTask.id}))
-      }
+      dispatch(editTask({ id:selectedTask.id, title, description, status }));
 
       setShowTaskModal(false);
     };
