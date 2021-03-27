@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllLists, removeList } from '../../store/lists';
+import ConfirmModal from '../ConfirmModal';
+import { Modal } from '../../context/Modal';
 import Tasks from '../Tasks';
 import './Lists.css';
 
 const Lists = () => {
     const dispatch = useDispatch();
 
+    const [title, setTitle] = useState();
     const [editListTitle, setEditListTitle] = useState(true);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-    const user = useSelector(state => state.session.user)
+    const user = useSelector(state => state.session.user);
     const lists = useSelector(state => state.lists.lists);
 
     useEffect(() => {
         dispatch(getAllLists(user.id));
     }, [dispatch, user])
 
+
+    const handleEditListTitle = () => {
+
+    }
+
     return (
+        <>
         <div className="list-container">
         {lists &&
             lists.map(list => {
@@ -28,15 +38,21 @@ const Lists = () => {
                             type="text"
                             value={list.title}
                             onChange={(e) => setEditListTitle(e.target.value)}
-                            readOnly={editListTitle}>
+                            autoFocus={true}>
                         </input>
                         <i className="fas fa-edit" onClick={() => setEditListTitle(false)}></i>
-                        <i className="fas fa-trash" onClick={() => dispatch(removeList(list))}></i>
+                        <i className="fas fa-trash" onClick={() => setShowConfirmModal(true)}></i>
                         <Tasks listId={list.id}/>
                     </div>
                 )
             })}
         </div>
+        {showConfirmModal &&
+        <Modal onClose={() => setShowConfirmModal(false)} name="warning">
+            <ConfirmModal setShowConfirmModal={setShowConfirmModal}/>
+        </Modal>
+        }
+        </>
     )
 }
 
