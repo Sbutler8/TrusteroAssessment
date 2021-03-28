@@ -57,14 +57,6 @@ export const addComment = (formObj) => async (dispatch) => {
     return res
   };
 
-// export const setSelectedTask = (task) => async (dispatch) => {
-//   const response = await fetch(`/api/tasks/${listId}`);
-//   let data = await response.json()
-//   dispatch(getTasks(listId,data.tasks));
-//   return data.tasks;
-// };
-
-
 const initialState = {};
 
 const commentReducer = (state = initialState, action) => {
