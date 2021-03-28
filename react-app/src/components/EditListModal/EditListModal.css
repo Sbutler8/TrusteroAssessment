@@ -1,0 +1,17 @@
+.edit-title-container {
+    font-family: system-ui;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.title-input-field {
+    height: 40px;
+    color: #000;
+    border: 1px solid #bcbcbc;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 5px;
+}

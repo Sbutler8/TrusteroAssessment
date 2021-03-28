@@ -23,9 +23,9 @@ const remove = (id) => ({
   payload: id
 });
 
-const setTitle = (title) => ({
+const setTitle = (list, index) => ({
   type: SET_LIST_TITLE,
-  payload: title
+  list, index
 });
 
 
@@ -36,17 +36,17 @@ export const getAllLists = (userId) => async (dispatch) => {
   return data.lists;
 };
 
-export const editListTitle = (formObj ) => async (dispatch) => {
+export const editListTitle = (formObj) => async (dispatch) => {
 
-    const { id, title } = formObj;
+    const { id, title, index } = formObj;
     const formData = { id, title };
 
-    const res = await fetch(`/api/lists/${id}`, {
-      method: "PATCH",
+    const res = await fetch(`/api/lists/edit/${id}`, {
+      method: "PUT",
       body: JSON.stringify(formData),
     });
-
-    dispatch(setTitle(res));
+    let data = await res.json(res)
+    dispatch(setTitle(data, index));
     return res
   };
 
@@ -93,10 +93,11 @@ const listReducer = (state = initialState, action) => {
     case GET_LISTS:
       return { ...state, lists: action.payload }
     case REMOVE_LIST:
-      let newState = {lists: [...state.lists.filter((list) => list.id !== action.payload)]};
+      newState = {lists: [...state.lists.filter((list) => list.id !== action.payload)]};
       return newState;
     case SET_LIST_TITLE:
-      return { ...state, file: action.payload };
+      (state.lists[action.index].title) = action.list.title
+      return {...state}
     default:
       return state;
   }

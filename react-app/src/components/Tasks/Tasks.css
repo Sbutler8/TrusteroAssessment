@@ -1,6 +1,7 @@
-.tasks-container {
+.task-container {
     display:  flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin-bottom: 25px;
+    margin-right: 100px;
 }
