@@ -44,7 +44,7 @@ def edit_task(id):
     task.status = data['status']
     db.session.commit()
 
-    return {"task": task.to_dict(), "listId":task.list_id}
+    return task.to_dict()
 
 @task_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete(id):

@@ -4,8 +4,6 @@ import IndividualTask from '../IndividualTask/index';
 import { Link } from "react-router-dom";
 import { Modal } from '../../context/Modal';
 import { getAllTasks } from '../../store/tasks';
-import { setSelectedTask } from '../../store/tasks';
-import TaskToggle from "../TaskToggle";
 import './Tasks.css';
 
 function Tasks({ listId }) {
@@ -13,6 +11,7 @@ function Tasks({ listId }) {
 
     const [showTaskModal, setShowTaskModal] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
+    const [taskIndex, setTaskIndex] = useState(null);
 
     let tasks = useSelector(state => state.tasks);
     let user = useSelector(state => state.session.user)
@@ -20,7 +19,7 @@ function Tasks({ listId }) {
 
     useEffect(() => {
         dispatch(getAllTasks(listId))
-    }, [listId, dispatch, user])
+    }, [listId, dispatch, user, showTaskModal])
 
     if (!taskArray) {
         return null;
@@ -30,8 +29,8 @@ function Tasks({ listId }) {
         <div className="tasks-container">
             {taskArray && taskArray.map((task,i) => {
                 return (
-                    <div key={i}>
-                        <Link to='/home' onClick={() => {setShowTaskModal(true); setSelectedTask(task)}} >
+                    <div key={task.id}>
+                        <Link to='/home' onClick={() => {setShowTaskModal(true); setSelectedTask(task); setTaskIndex(i)}} >
                             <div className="task-title" >{task.title}</div>
                         </Link>
                         {/* <div className="task-carousel">{task.description}</div>
@@ -41,7 +40,7 @@ function Tasks({ listId }) {
             })}
             {showTaskModal &&  (
                 <Modal onClose={() => setShowTaskModal(false)} name="task">
-                    <IndividualTask setShowTaskModal={setShowTaskModal} selectedTask={selectedTask}/>
+                    <IndividualTask setShowTaskModal={setShowTaskModal} selectedTask={selectedTask} taskIndex={taskIndex}/>
                 </Modal>
             )}
         </div>

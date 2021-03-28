@@ -13,7 +13,6 @@ def lists(id):
 
 @list_routes.route('/edit/<int:id>', methods=['PUT'])
 def edit_list(id):
-    print('ID----------->', id)
     list_to_edit = List.query.get(id)
     form = request.get_json(force=True)
 
@@ -21,7 +20,7 @@ def edit_list(id):
 
     db.session.commit()
 
-    
+
 
     return list_to_edit.to_dict()
 

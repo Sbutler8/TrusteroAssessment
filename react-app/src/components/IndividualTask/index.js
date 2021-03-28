@@ -5,33 +5,31 @@ import { getAllComments, addComment, removeComment } from '../../store/comments'
 import TaskToggle from "../TaskToggle";
 import './IndividualTask.css';
 
-const IndividualTask = ({setShowTaskModal, selectedTask}) => {
+const IndividualTask = ({...props}) => {
   const dispatch = useDispatch();
-  console.log(selectedTask)
 
-  const [title, setTitle] = useState(selectedTask.title);
-  const [description, setDescription] = useState(selectedTask.description);
-  const [status, setStatus] = useState(selectedTask.status);
+  const [title, setTitle] = useState(props.selectedTask.title);
+  const [description, setDescription] = useState(props.selectedTask.description);
+  const [status, setStatus] = useState(props.selectedTask.status);
   const [comment, setComment] = useState("");
   const [addedComment, setAddedComment] = useState(true);
 
   useEffect(() => {
-      dispatch(getAllComments(selectedTask.id));
-  }, [dispatch, selectedTask.id])
+      dispatch(getAllComments(props.selectedTask.id));
+  }, [dispatch, props.selectedTask.id])
 
   const comments = useSelector(state => state.comments.comments)
 
   const handleAddTask = () => {
-    dispatch(addComment({comment, id:selectedTask.id}));
+    dispatch(addComment({comment, id:props.selectedTask.id}));
     setComment('');
   }
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('status:', status)
-      dispatch(editTask({ id:selectedTask.id, title, description, status }));
+      dispatch(editTask({ id:props.selectedTask.id, title, description, status, taskIndex: props.taskIndex }));
 
-      setShowTaskModal(false);
+      props.setShowTaskModal(false);
     };
 
   return (
@@ -46,7 +44,7 @@ const IndividualTask = ({setShowTaskModal, selectedTask}) => {
         />
         <label>Description</label>
         <textarea id="description"
-            placeholder={selectedTask.description}
+            placeholder={props.selectedTask.description}
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
