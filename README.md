@@ -57,17 +57,15 @@ This Todos List web application gives users the ability to view tasks associated
 #### 4. Pre-seeded data for each user in order to see the application in full
 #### 5. Home page rendering view of all lists and tasks associated with each list
 #### 6. Ability to delete list with all tasks and comments deleted with it
-#### 7. Ability to view task details in context modal with title, description, and comments
-#### 8. Ability to add comments 
-#### 9. Ability to delete comments 
-#### 10. Custon small navBar for logging in and out
+#### 7. Ability to edit list title
+#### 8. Ability to view task details in context modal with title, description, and comments
+#### 9. Ability to add comments 
+#### 10. Ability to delete comments 
+#### 11. Custom small navBar for logging in and out
 
 ### Additional Things To Tackle
-#### 1. Edit List Title
-#### 2. Fix task toggle to change to green when task complete
-#### 2. Further front-end to work on and make aesthetically pleasing
-#### 4. Show changes made with re-render (Just need to add a few dependencies to useEffect())
-
+#### 1. Further front-end to work on and make aesthetically pleasing
+#### 2. Add edit task comments individually
 
 ![Alt text](https://github.com/Sbutler8/TrusteroAssessment/blob/main/react-app/public/images/Trustero.gif)
 
