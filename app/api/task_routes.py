@@ -38,12 +38,12 @@ def add_comment():
 def edit_task(id):
     task = Task.query.get(id)
     data = request.get_json(force=True)
-    print('BE data:-------------->', data)
 
     task.title = data['title']
     task.description = data['description']
     task.status = data['status']
     db.session.commit()
+
     return task.to_dict()
 
 @task_routes.route('/delete/<int:id>', methods=['DELETE'])

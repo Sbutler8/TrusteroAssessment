@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editTask } from '../../store/tasks';
-import { getAllComments, addComment, removeComment } from '../../store/comments';
+import { getAllComments } from '../../store/comments';
 import TaskToggle from "../TaskToggle";
 import './IndividualTask.css';
+import Comments from "../Comments";
+import AddComment from "../AddComment";
 
-function IndividualTask({setShowTaskModal, selectedTask}) {
+const IndividualTask = ({...props}) => {
   const dispatch = useDispatch();
-  console.log(selectedTask)
 
-  const [title, setTitle] = useState(selectedTask.title);
-  const [description, setDescription] = useState(selectedTask.description);
-  const [status, setStatus] = useState(selectedTask.status);
-  const [comment, setComment] = useState("");
-  const [addedComment, setAddedComment] = useState(true);
+  const [title, setTitle] = useState(props.selectedTask.title);
+  const [description, setDescription] = useState(props.selectedTask.description);
+  const [status, setStatus] = useState(props.selectedTask.status);
+  const [addedComment, setAddedComment] = useState(false);
 
   useEffect(() => {
-      dispatch(getAllComments(selectedTask.id));
-  }, [dispatch])
-
-  const comments = useSelector(state => state.comments.comments)
+      dispatch(getAllComments(props.selectedTask.id));
+  }, [dispatch, props.selectedTask.id])
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('status:', status)
-      dispatch(editTask({ id:selectedTask.id, title, description, status }))
-      if (comment) {
-          dispatch(addComment({comment, id:selectedTask.id}))
-      }
+      dispatch(editTask({ id:props.selectedTask.id, title, description, status, taskIndex: props.taskIndex }));
 
-      setShowTaskModal(false);
+      props.setShowTaskModal(false);
     };
 
   return (
@@ -44,7 +38,7 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
         />
         <label>Description</label>
         <textarea id="description"
-            placeholder={selectedTask.description}
+            placeholder={props.selectedTask.description}
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -52,34 +46,10 @@ function IndividualTask({setShowTaskModal, selectedTask}) {
         ></textarea>
         <label>Status: {status ? 'In Progress':'Complete'}</label>
         <TaskToggle status={status} setStatus={setStatus}/>
-        <div className="comments-container">
-          <div className="comments-header">Comments<i className="fas fa-plus" onClick={() => setAddedComment(false)}></i></div>
-          {comments &&
-          comments.map(comment => {
-            return (
-              <ul key={comment.id}>
-                <li className="comments-list">{comment.comment}
-                  <div className="icon-container">
-                    <i className="fas fa-edit"></i>
-                    <i className="fas fa-trash" onClick={() => dispatch(removeComment(comment.id))}></i>
-                  </div>
-                </li>
-              </ul>
-            )
-          })}
-        </div>
-        <div className="add-comment-container" hidden={addedComment}>
-          <textarea className="add-comment-text-area"
-          placeholder="Add comment"
-          type="text"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          >
-          </textarea>
-        </div>
-        {/* {comment &&
-        <button className="add-comment-button" >Add comment</button>
-        } */}
+        <Comments setAddedComment={setAddedComment}/>
+        {addedComment &&
+        <AddComment addedComment={addedComment} selectedTask={props.selectedTask}/>
+        }
         <button className="save-button" type="submit">Save</button>
     </form>
   );

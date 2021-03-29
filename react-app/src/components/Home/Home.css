@@ -32,21 +32,6 @@ body {
     width: 100%;
 }
 
-.list-container {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.list-titles {
-    font-size: 35px;
-    color: #008c97;
-    border: none;
-}
-
 .welcome-header {
     position: absolute;
     right: 200px;

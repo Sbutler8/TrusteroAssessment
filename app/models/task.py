@@ -19,4 +19,5 @@ class Task(db.Model):
           "title": self.title,
           "description": self.description,
           "status": self.status,
+          "list_id": self.list_id,
         }

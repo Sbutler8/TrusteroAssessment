@@ -1,0 +1,42 @@
+.fa-exclamation-triangle {
+    color: red;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.warning-container {
+    font-family: system-ui;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.warning-text {
+    margin: 0 12px;
+}
+
+
+.checkbox {
+    display : none;
+}
+
+.warning-yes-submit-button, .warning-no-submit-button  {
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    color: #000;
+    font-weight: 800;
+    width: 50px;
+    height: 20px;
+    margin: 10px;
+}
+
+.warning-no-submit-button {
+    background-color: red;
+}
+
+.warning-yes-submit-button {
+    background-color: rgba(34, 202, 143, 0.74);
+}

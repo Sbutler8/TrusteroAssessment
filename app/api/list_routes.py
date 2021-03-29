@@ -11,6 +11,19 @@ def lists(id):
     lists = List.query.filter(List.user_id == id).all()
     return {"lists": [to_do_list.to_dict() for to_do_list in lists]}
 
+@list_routes.route('/edit/<int:id>', methods=['PUT'])
+def edit_list(id):
+    list_to_edit = List.query.get(id)
+    form = request.get_json(force=True)
+
+    list_to_edit.title = form['title']
+
+    db.session.commit()
+
+
+
+    return list_to_edit.to_dict()
+
 @list_routes.route('/create', methods=['POST'])
 def add_list():
     """

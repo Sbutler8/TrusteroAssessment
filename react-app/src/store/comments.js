@@ -1,5 +1,6 @@
 const GET_COMMENTS = 'comment/getComments';
 const ADD_COMMENT = 'comment/addComment';
+const SET_COMMENT = 'comments/setComment';
 const REMOVE_COMMENT = 'comment/removeComment';
 
 const getComments = (comments) => {
@@ -15,6 +16,11 @@ const add = (comment) => {
     payload: comment,
   };
 };
+
+const setComment = (comment, index) => ({
+  type: SET_COMMENT,
+  comment, index
+});
 
 const remove = (id) => ({
   type: REMOVE_COMMENT,
@@ -42,9 +48,22 @@ export const addComment = (formObj) => async (dispatch) => {
     body: JSON.stringify(formData),
   });
     let data = await res.json();
-    dispatch(add(data.comment));
+    dispatch(add(data));
     return res;
   }
+
+  export const editComment = (formObj) => async (dispatch) => {
+    const { id, comment, index } = formObj;
+    const formData = { id, comment };
+
+    const res = await fetch(`/api/comments/edit/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(formData),
+    });
+    let data = await res.json();
+    dispatch(setComment(data, index));
+    return res
+    };
 
   export const removeComment = (id) => async (dispatch) => {
 
@@ -57,14 +76,6 @@ export const addComment = (formObj) => async (dispatch) => {
     return res
   };
 
-// export const setSelectedTask = (task) => async (dispatch) => {
-//   const response = await fetch(`/api/tasks/${listId}`);
-//   let data = await response.json()
-//   dispatch(getTasks(listId,data.tasks));
-//   return data.tasks;
-// };
-
-
 const initialState = {};
 
 const commentReducer = (state = initialState, action) => {
@@ -72,7 +83,10 @@ const commentReducer = (state = initialState, action) => {
     case GET_COMMENTS:
       return { ...state, comments: action.payload }
     case ADD_COMMENT:
-      return { ...state, comments: action.payload }
+      return { ...state, comments: [...state.comments, action.payload] }
+    case SET_COMMENT:
+      (state.comments[action.index].comment) = action.comment.comment
+      return {...state}
     case REMOVE_COMMENT:
       let newState = {comments: [...state.comments.filter((comment) => comment.id !== action.payload)]};
       return newState;
