@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeComment } from '../../store/comments';
@@ -18,7 +17,6 @@ const Comments = ({...props}) => {
               <ul key={comment.id}>
                 <li className="comments-list">{comment.comment}
                   <div className="icon-container">
-                    <i className="fas fa-edit"></i>
                     <i className="fas fa-trash" onClick={() => dispatch(removeComment(comment.id))}></i>
                   </div>
                 </li>

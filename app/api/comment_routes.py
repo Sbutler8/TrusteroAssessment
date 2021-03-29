@@ -24,7 +24,15 @@ def add_comment(id):
     db.session.add(comment)
     db.session.commit()
 
-    # comments = Comment.query.filter(Comment.task_id == id).all()
+    return comment.to_dict()
+
+@comment_routes.route('/edit/<int:id>', methods=['PUT'])
+def edit_comment(id):
+    comment = Comment.query.get(id)
+    data = request.get_json(force=True)
+
+    comment.comment = data['comment']
+    db.session.commit()
 
     return comment.to_dict()
 
