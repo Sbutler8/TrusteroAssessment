@@ -66,6 +66,7 @@ This Todos List web application gives users the ability to view tasks associated
 ### Additional Things To Tackle
 #### 1. Further front-end to work on and make aesthetically pleasing
 #### 2. Add edit task comments individually
+#### 3. Change store to arrays vs. dictionaries to implement constant time querying in easier fashion
 
 ![Alt text](https://github.com/Sbutler8/TrusteroAssessment/blob/main/react-app/public/images/Trustero.gif)
 
